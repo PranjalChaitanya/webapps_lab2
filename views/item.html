@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" type="image/png" href="/favicon-32x32.png"/>
+    <link rel="stylesheet" href="/stylesheets/button_styles.css">
+</head>
+
+<body>
+    <div>
+    </div>
+
+    <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center"
+        id="modal-id">
+        <div class="relative w-auto my-6 mx-auto max-w-3xl">
+            <!--content-->
+            <div
+                class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                <!--body-->
+                <div class="relative px-6 pt-6 flex-auto">
+                    <form class="w-full max-w-lg grid place-items-center my-4">
+                        <div class="flex flex-wrap -mx-3 mb-3">
+                            <div class="w-full md:w-1/2 px-3 mb-3 md:mb-0">
+                                <input
+                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                                    id="grid-first-name" type="text" placeholder="Item Name:">
+                            </div>
+                            <div class="w-full md:w-1/2 px-3">
+                                <input
+                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                    id="grid-last-name" type="text" placeholder="Item Quantity:">
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap -mx-3 mb-6 w-full">
+                            <div class="w-full px-3">
+                                <input
+                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-12 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                    id="grid-last-name" type="text" placeholder="Item Description:">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--footer-->
+                <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 ml-2 rounded"
+                        type="button" onclick="toggleModal('modal-id')">
+                        Close
+                    </button>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded " type="button"
+                        onclick="toggleModal('modal-id')">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="modal-id-backdrop"></div>
+    <script type="text/javascript">
+        function toggleModal(modalID) {
+            document.getElementById(modalID).classList.toggle("hidden");
+            document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
+            document.getElementById(modalID).classList.toggle("flex");
+            document.getElementById(modalID + "-backdrop").classList.toggle("flex");
+        }
+    </script>
+</body>
+
+</html>
+
+<div class="ml-64">
+    <h1 class="text-3xl text-sky-600 font-sans text-5xl my-12">Stuff Details</h1>
+    <div class="mb-12">
+        <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 mb-12 rounded" href="/stuff">Click to go to Stuff</a>
+    </div>
+    <table class="text-sm text-left text-gray-900 dark:text-gray-600 w-3/4">
+        <tr class="bg-slate-200 border-b dark:bg-slate-200 dark:border-gray-300 h-16">
+            <th class="px-6 py-6">Item:</th>
+            <th class="px-12 py-6">Widgets</th>
+        </tr>
+        <tr class="bg-slate-200 border-b dark:bg-slate-200 dark:border-gray-300 h-16">
+            <td class="px-6 py-6">Quantity:</td>
+            <td class="px-12 py-6">5</td>
+        </tr>
+        <tr class="bg-slate-200 border-b dark:bg-slate-200 dark:border-gray-300 h-16">
+            <td class="px-6 py-6">Description</td>
+            <td class="px-12 py-6">Widgets are cool! You can do ... so many... different things... with them...</td>
+        </tr>
+      </table>
+      <form class="w-full max-w-lg my-12">
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full px-3">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button" onclick="toggleModal('modal-id')">
+                Edit</button>
+
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button"">
+                Delete</button>
+          </div>
+        </div>
+      </form>
+</div>
