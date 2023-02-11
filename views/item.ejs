@@ -19,39 +19,40 @@
                 class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <!--body-->
                 <div class="relative px-6 pt-6 flex-auto">
-                    <form class="w-full max-w-lg grid place-items-center my-4">
+                    <form class="w-full max-w-lg grid place-items-center my-4" method="post" action="/stuff/item/<%= id%>">
                         <div class="flex flex-wrap -mx-3 mb-3">
                             <div class="w-full md:w-1/2 px-3 mb-3 md:mb-0">
                                 <input
                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                                    id="grid-first-name" type="text" placeholder="Item Name:">
+                                    id="grid-first-name" type="text" placeholder="Item Name:" name = "name" value=<%= item%>>
                             </div>
                             <div class="w-full md:w-1/2 px-3">
                                 <input
                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    id="grid-last-name" type="text" placeholder="Item Quantity:">
+                                    id="grid-last-name" type="text" placeholder="Item Quantity:" name = "quantity" value=<%= quantity%>>
                             </div>
                         </div>
                         <div class="flex flex-wrap -mx-3 mb-6 w-full">
                             <div class="w-full px-3">
                                 <input
                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-12 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    id="grid-last-name" type="text" placeholder="Item Description:">
+                                    id="grid-last-name" type="text" placeholder="Item Description:" name="description" value=<%= description%>>
                             </div>
+                        </div>
+
+                        <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 ml-2 rounded"
+                                type="button" onclick="toggleModal('modal-id')">
+                                Close
+                            </button>
+                            
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded " type="submit"
+                                onclick="toggleModal('modal-id')"> Save </button>
+                            </form>
                         </div>
                     </form>
                 </div>
                 <!--footer-->
-                <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 ml-2 rounded"
-                        type="button" onclick="toggleModal('modal-id')">
-                        Close
-                    </button>
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded " type="button"
-                        onclick="toggleModal('modal-id')">
-                        Save
-                    </button>
-                </div>
             </div>
         </div>
     </div>
@@ -76,15 +77,15 @@
     <table class="text-sm text-left text-gray-900 dark:text-gray-600 w-3/4">
         <tr class="bg-slate-200 border-b dark:bg-slate-200 dark:border-gray-300 h-16">
             <th class="px-6 py-6">Item:</th>
-            <th class="px-12 py-6">Widgets</th>
+            <th class="px-12 py-6"><%= item %></th>
         </tr>
         <tr class="bg-slate-200 border-b dark:bg-slate-200 dark:border-gray-300 h-16">
             <td class="px-6 py-6">Quantity:</td>
-            <td class="px-12 py-6">5</td>
+            <td class="px-12 py-6"><%= quantity %></td>
         </tr>
         <tr class="bg-slate-200 border-b dark:bg-slate-200 dark:border-gray-300 h-16">
             <td class="px-6 py-6">Description</td>
-            <td class="px-12 py-6">Widgets are cool! You can do ... so many... different things... with them...</td>
+            <td class="px-12 py-6"><%= description %></td>
         </tr>
       </table>
       <form class="w-full max-w-lg my-12">
@@ -92,9 +93,11 @@
           <div class="w-full px-3">
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button" onclick="toggleModal('modal-id')">
                 Edit</button>
-
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="button"">
-                Delete</button>
+            
+            <form method="post" action="/stuff/item/<%= id %>/delete"> 
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Delete</button>
+            </form>
           </div>
         </div>
       </form>

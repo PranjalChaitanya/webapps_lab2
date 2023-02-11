@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="shortcut icon" type="image/png" href="/favicon-32x32.png"/>
+		<link rel="stylesheet" href="/stylesheets/button_styles.css">
+	</head>
+	<body>
+		<div class="grid place-items-center">
+			<h1 class="text-3xl text-sky-600 font-sans text-5xl my-12">Stuff Inventory</h1>
+			<table class="text-sm text-left text-gray-900 dark:text-gray-600 w-1/2">
+				<tr class="bg-slate-200 border-b dark:bg-slate-200 dark:border-gray-300 h-16">
+				    <th class="px-6 py-3">Item</th>
+				    <th class="px-6 py-3">Quantity</th>
+				    <th class="px-6 py-3"></th>
+				</tr>
+				<% for (let i = 0; i < inventory.length; i++) { %>
+					<tr class="bg-slate-200 border-b dark:bg-slate-200 dark:border-gray-300 h-16">
+						<th class="px-6 py-3"><%= inventory[i].item %></td>
+						<th class="px-6 py-3"><%= inventory[i].quantity %></td>
+						<th class="px-6 py-3">
+							<a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href=<%= "/stuff/item/" + inventory[i].id %>>Info/Edit</a><a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 ml-2 rounded" href="/stuff/item/<%= inventory[i].id %>/delete">Delete</a>
+						</th>
+					</tr>
+				<% } %>
+			  </table>
+			
+			  <h1 class="text-3xl text-sky-600 font-sans text-5xl mt-12">Add Stuff</h1>
+
+			  <form class="w-full max-w-lg grid place-items-center my-12" method="post" action="/stuff">
+				<div class="flex flex-wrap -mx-3 mb-3">
+				  <div class="w-full md:w-1/2 px-3 mb-3 md:mb-0">
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Item Name:" name="name">
+				  </div>
+				  <div class="w-full md:w-1/2 px-3">
+					<input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Item Quantity:" name="quantity">
+				  </div>
+				</div>
+				<div class="flex flex-wrap -mx-3 mb-6">
+				  <div class="w-full px-3">
+					<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+				  </div>
+				</div>
+			  </form>
+
+			  <img src="/images/clown.jpg" />
+		</div>
+	</body>
+</html>

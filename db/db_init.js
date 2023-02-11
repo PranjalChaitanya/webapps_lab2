@@ -23,12 +23,9 @@ const insert_stuff_table_sql = `
         (?, ?, ?);
 `
 db.execute(insert_stuff_table_sql, ['Widgets', '5', 'Widgets are cool! You can do ... so many... different things... with them...']);
-
 db.execute(insert_stuff_table_sql, ['Gizmos', '100', null]);
-
-db.execute(insert_stuff_table_sql, ['Thingamajig', '12345', 'Not to be confused with a Thingamabob']);
-
-db.execute(insert_stuff_table_sql, ['Thingamabob', '54321', 'Not to be confused with a Thingamajig']);
+db.execute(insert_stuff_table_sql, ['fsdfdsfsddfs', '12345', 'Not to be confused with a Thingamabob']);
+db.execute(insert_stuff_table_sql, ['fsdsdfsdfsdfdfs', '54321', 'Not to be confused with a Thingamajig']);
 
 const read_stuff_table_sql = "SELECT * FROM stuff";
 
